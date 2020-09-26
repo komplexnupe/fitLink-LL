@@ -1,5 +1,5 @@
 # fitLink
-> This project includes edits and add-ons that I made after our group project was delivered. The original project is listed below for reference. 
+> This project includes edits and add-ons that I made after our group project was delivered. The original project is listed below for reference. The original project only has the Create and Read from the database functioning. I've included the Update & Destroy.
 
 ## Installation - Updated Project
 > npm i <br>
