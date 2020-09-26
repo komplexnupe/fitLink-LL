@@ -1,6 +1,7 @@
 # fitLink
+> This project includes edits and add-ons that I made post our group project was delivered. The original project is list below for reference. 
 
-### Installation
+## Installation
 > npm i <br>
 > npm start
 
@@ -11,7 +12,7 @@
 
 
 
-## Original Project & Contributors: Tyshia, Kim, Leonard, Nick
+### Original Project & Contributors: Tyshia, Kim, Leonard, Nick
 [Team Repository](https://github.com/kmarzi/fit-link)
 
 [fitLink Heroku App](https://fit-link.herokuapp.com/)
