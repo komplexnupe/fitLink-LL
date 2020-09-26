@@ -20,12 +20,13 @@ $(document).ready(() => {
       }
 
     function displayEditLinkUp(data) {
+        console.log(data);
         const display = `
         <div class="form-row">
         <div class="form-group col-md-6">
           <label for="linkUpCategory">LinkUp Category</label>
           <select class="custom-select" id="category" placeholder="Choose A Category">
-            <option selected placeholder="Select Category" value="${data[0].category}"></option>
+            <option selected placeholder="Select Category">${data.category}</option>
             <option value="Basketball">Basketball</option>
             <option value="Biking">Cycling</option>
             <option value="Dodgeball">Dodgeball</option>
@@ -39,26 +40,26 @@ $(document).ready(() => {
         </div>
         <div class="form-group col-md-6">
           <label for="linkUpName">LinkUp Name</label>
-          <input class="form-control" type="text" id="LinkName" placeholder="LinkUp Name" value=${data[0].name}>
+          <input class="form-control" type="text" id="LinkName" placeholder="LinkUp Name" value="${data.name}">
         </div>
       </div>
       <div class="form-group">
         <label for="linkUpDescription">LinkUp Description</label>
-        <input class="form-control" type="text" id="description" placeholder="Description" value=${data[0].linkUpDesc}>
+        <input class="form-control" type="text" id="description" placeholder="Description" value="${data.linkUpDesc}">
       </div>
       <div class="form-group">
         <label for="streetAddress">Street Address</label>
-        <input class="form-control" type="text" id="Addy" placeholder="Street Address" value=${data[0].street}>
+        <input class="form-control" type="text" id="Addy" placeholder="Street Address" value="${data.street}">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputCity">City</label>
-          <input type="text" class="form-control" id="inputCity" placeholder="City" value=${data[0].city}>
+          <input type="text" class="form-control" id="inputCity" placeholder="City" value="${data.city}">
         </div>
         <div class="form-group col-md-4">
           <label for="stateDropdown">State</label>
           <select class="custom-select" id="stateInput">
-            <option selected placeholder="Select State"value="${data[0].state}"></option>
+            <option selected placeholder="Select State">${data.state}</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -114,7 +115,7 @@ $(document).ready(() => {
         </div>
         <div class="form-group col-md-2">
           <label for="exampleFormControlTextarea1">Zip Code</label>
-          <input class="form-control" type="text" id="Zip" placeholder="Zip Code" value=${data[0].zipCode}>
+          <input class="form-control" type="text" id="Zip" placeholder="Zip Code" value="${data.zipCode}">
         </div>
       </div>
       <div class="form-row">
@@ -128,31 +129,33 @@ $(document).ready(() => {
         </div>
         <div class="form-group col-md-3">
           <label for="exampleFormControlTextarea1">Duration</label>
-          <input class="form-control" type="number" id="End" placeholder="Minutes" value=${data[0].duration}>
+          <input class="form-control" type="number" id="End" placeholder="Minutes" value="${data.duration}">
         </div>
       </div>
       <button type="submit" class="btn btn-fit col-md-12">Edit LinkUp</button>
 
                       `;
-        linkup.append(display);
+        linkUpForm.append(display);
     }
 
 
     linkUpForm.on("submit", event => {
         event.preventDefault();
+        console.log("hey")
         const linkUpData = {
-          name: linkName.val().trim(),
-          linkUpDesc: linkUpDescription.val().trim(),
-          street: addressInput.val().trim(),
-          city: cityInput.val(),
-          state: stateInput.val(),
-          zipCode: zipCodeInput.val().trim(),
-          linkUpDate: dateInput.val(),
-          startTime: startTime.val(),
-          duration: linkUpDuration.val(),
-          category: categoryInput.val()
+            name: linkName.val().trim(),
+            linkUpDesc: linkUpDescription.val().trim(),
+            street: addressInput.val().trim(),
+            city: cityInput.val(),
+            state: stateInput.val(),
+            zipCode: zipCodeInput.val().trim(),
+            linkUpDate: dateInput.val(),
+            startTime: startTime.val(),
+            duration: linkUpDuration.val(),
+            category: categoryInput.val()
         };
-        updateLinkUp(linkUpData);
+        console.log(linkUpData);
+        // updateLinkUp(linkUpData);
       });
     
       function getLinkUpData(id) {
@@ -167,7 +170,7 @@ $(document).ready(() => {
         console.log(data);
         $.put("/api/linkup/" + linkUpID, data)
           .then(() => {
-            window.location.replace("/viewEvents");
+            window.location.replace("/viewLinkUps");
             // If there's an error, handle it by throwing up a bootstrap alert
           })
           .catch(error => {

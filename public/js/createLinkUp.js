@@ -32,7 +32,7 @@ $(document).ready(() => {
     console.log(data);
     $.post("/api/linkup", data)
       .then(() => {
-        window.location.replace("/viewEvents");
+        window.location.replace("/viewLinkups");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(error => {
