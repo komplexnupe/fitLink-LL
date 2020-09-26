@@ -1,7 +1,7 @@
 # fitLink
 > This project includes edits and add-ons that I made after our group project was delivered. The original project is listed below for reference. 
 
-## Installation
+## Installation - Updated Project
 > npm i <br>
 > npm start
 
