@@ -8,7 +8,7 @@ $(document).ready(() => {
     const zipCodeInput = $("#Zip");
     const dateInput = $("#Date");
     const startTime = $("#Start");
-    const linkUpDuration = $("#End");
+    const linkUpDuration = $("#duration");
     const linkUpDescription = $("#description");
     var url = window.location.search;
     var linkUpID;
@@ -129,7 +129,7 @@ $(document).ready(() => {
         </div>
         <div class="form-group col-md-3">
           <label for="exampleFormControlTextarea1">Duration</label>
-          <input class="form-control" type="number" id="End" placeholder="Minutes" value="${data.duration}">
+          <input class="form-control" type="number" id="duration" placeholder="Minutes" value="${data.duration}">
         </div>
       </div>
       <button type="submit" class="btn btn-fit col-md-12">Edit LinkUp</button>
@@ -137,7 +137,6 @@ $(document).ready(() => {
                       `;
         linkUpForm.append(display);
     }
-
 
     linkUpForm.on("submit", event => {
         event.preventDefault();
