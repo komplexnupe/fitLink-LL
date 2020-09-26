@@ -44,6 +44,7 @@ $(document).ready(() => {
       $(".pro").append(displayEach);
     }
   }
+
   function convertTime(x) {
     let time = x; // your input
     time = time.split(":"); // convert to array
@@ -75,5 +76,6 @@ $(document).ready(() => {
   function handleLinkUpEdit() {
     const currentLinkUp = $(this).data("id");
     console.log("Edit This===>", currentLinkUp);
+    window.location.replace("/linkup/edit?linkup_id=" + currentLinkUp)
   }
 });

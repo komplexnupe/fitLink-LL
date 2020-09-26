@@ -22,7 +22,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/createLinkup.html"));
   });
 
-  app.get("/linkup/:id/edit", (req, res) => {
+  app.get("/linkup/edit", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/editLinkup.html"));
   });
 

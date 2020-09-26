@@ -29,7 +29,6 @@ db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(
       "==> 🌎  Listening on port 8080. Visit http://localhost:8080 in your browser.",
-      PORT,
       PORT
     );
   });
