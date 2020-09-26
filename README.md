@@ -1,7 +1,7 @@
 # fitLink
 
 ### Installation
-> npm i
+> npm i <br>
 > npm start
 
 ![fitLink](public/images/fitLinkWelcome.png)
