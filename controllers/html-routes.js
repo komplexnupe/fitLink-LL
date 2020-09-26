@@ -8,7 +8,7 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/viewEvents");
+      res.redirect("/viewLinkups");
       console.log(req);
     }
     res.sendFile(path.join(__dirname, "../public/welcome.html"));
@@ -19,16 +19,16 @@ module.exports = function(app) {
     // if (req.user) {
     //   res.redirect("/viewevents");
     // }
-    res.sendFile(path.join(__dirname, "../public/createEvents.html"));
+    res.sendFile(path.join(__dirname, "../public/createLinkup.html"));
   });
 
   app.get("/linkup/:id/edit", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/edit.html"));
+    res.sendFile(path.join(__dirname, "../public/editLinkup.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/viewEvents", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/viewEvents.html"));
+  app.get("/viewLinkups", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/viewLinkup.html"));
   });
 };

@@ -26,7 +26,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/viewEvents");
+        window.location.replace("/viewLinkups");
         // If there's an error, log the error
       })
       .catch(handleLoginErr);

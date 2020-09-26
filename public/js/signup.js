@@ -26,7 +26,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/viewEvents");
+        window.location.replace("/viewLinkups");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);

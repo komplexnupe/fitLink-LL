@@ -58,7 +58,6 @@ $(document).ready(() => {
   function handleInterestBtn() {
     const currentLinkUp = $(this).data("id");
     console.log("Interested ===>", currentLinkUp);
-    // deleteLinkUp(currentLinkUp.id);
   }
 });
 
