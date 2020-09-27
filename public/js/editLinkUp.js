@@ -1,4 +1,4 @@
-$(document).ready(() => {
+// $(document).ready(() => {
     const linkUpForm = $("form.LinkUp");
     const categoryInput = $("#category");
     const linkName = $("#LinkName");
@@ -140,7 +140,7 @@ $(document).ready(() => {
 
     linkUpForm.on("submit", event => {
         event.preventDefault();
-        console.log("hey")
+        console.log(linkName, linkUpDescription, addressInput);
         const linkUpData = {
             name: linkName.val().trim(),
             linkUpDesc: linkUpDescription.val().trim(),
@@ -167,8 +167,11 @@ $(document).ready(() => {
   
       function updateLinkUp(data) {
         console.log(data);
-        $.put("/api/linkup/" + linkUpID, data)
-          .then(() => {
+        $.ajax({
+            method: "PUT",
+            url: "/api/linkup/" + linkUpID,
+            data: data
+          }).then(() => {
             window.location.replace("/viewLinkUps");
             // If there's an error, handle it by throwing up a bootstrap alert
           })
@@ -176,5 +179,5 @@ $(document).ready(() => {
             console.log(error);
           });
         };
-  });
+//   });
   
