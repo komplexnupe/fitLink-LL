@@ -18,7 +18,7 @@ $(document).ready(() => {
       const displayEach = `
       <p id="evite" class="card-title" style="font-size: 20px">
         <b>${data[i].name}</b>
-        <button type="button" data-id=${data[i].id} class="btn btn-primary ml-5 interest">
+        <button type="button" data-id=${data[i].id} class="btn btn-fit ml-5 interest float-right">
                         Interested
                         <span class="badge badge-light ml-2">${data[i].interestCount}</span>
                       </button></p>
