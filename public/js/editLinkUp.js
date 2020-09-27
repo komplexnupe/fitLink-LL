@@ -1,15 +1,6 @@
-// $(document).ready(() => {
+$(document).ready(() => {
     const linkUpForm = $("form.LinkUp");
-    const categoryInput = $("#category");
-    const linkName = $("#LinkName");
-    const addressInput = $("#Addy");
-    const cityInput = $("#inputCity");
-    const stateInput = $("#stateInput");
-    const zipCodeInput = $("#Zip");
-    const dateInput = $("#Date");
-    const startTime = $("#Start");
-    const linkUpDuration = $("#duration");
-    const linkUpDescription = $("#description");
+ 
     var url = window.location.search;
     var linkUpID;
 
@@ -140,21 +131,21 @@
 
     linkUpForm.on("submit", event => {
         event.preventDefault();
-        console.log(linkName, linkUpDescription, addressInput);
+        // console.log(linkName, linkUpDescription, addressInput);
         const linkUpData = {
-            name: linkName.val().trim(),
-            linkUpDesc: linkUpDescription.val().trim(),
-            street: addressInput.val().trim(),
-            city: cityInput.val(),
-            state: stateInput.val(),
-            zipCode: zipCodeInput.val().trim(),
-            linkUpDate: dateInput.val(),
-            startTime: startTime.val(),
-            duration: linkUpDuration.val(),
-            category: categoryInput.val()
+            name: $("#LinkName").val().trim(),
+            linkUpDesc: $("#description").val().trim(),
+            street: $("#Addy").val().trim(),
+            city: $("#inputCity").val(),
+            state: $("#stateInput").val(),
+            zipCode: $("#Zip").val().trim(),
+            linkUpDate: $("#Date").val(),
+            startTime: $("#Start").val(),
+            duration: $("#duration").val(),
+            category: $("#category").val()
         };
         console.log(linkUpData);
-        // updateLinkUp(linkUpData);
+        updateLinkUp(linkUpData);
       });
     
       function getLinkUpData(id) {
@@ -172,12 +163,13 @@
             url: "/api/linkup/" + linkUpID,
             data: data
           }).then(() => {
-            window.location.replace("/viewLinkUps");
+            window.location.replace("/viewLinkups");
+            console.log("success")
             // If there's an error, handle it by throwing up a bootstrap alert
           })
           .catch(error => {
             console.log(error);
           });
         };
-//   });
+  });
   
