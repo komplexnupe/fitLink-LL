@@ -20,7 +20,6 @@ $(document).ready(() => {
         <b>${data[i].name}</b>
         <button type="button" data-id=${data[i].id} class="btn btn-fit ml-5 interest float-right">
                         Interested
-                        <span class="badge badge-light ml-2">${data[i].interestCount}</span>
                       </button></p>
                     <p><b>Where: </b>${data[i].street} ${data[i].city}, ${data[i].state} ${data[i].zipCode}
                     <p><b>When: </b>${data[i].linkUpDate} at ${eventTime}</p>

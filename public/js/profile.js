@@ -18,9 +18,10 @@ $(document).ready(() => {
   profile.on("click", function() {
     $.get("/api/user_data").then(data => {
       $(".member-name").text(data.email);
-      console.log("Profile ID ===>", data.id);
+      // console.log("Profile ID ===>", data.id);
       const userID = data.id;
       $.get("/api/linkup/UserId/" + userID, function(res) {
+                $(".pro").empty();
         displayUserLinkUp(res);
       });
     });
