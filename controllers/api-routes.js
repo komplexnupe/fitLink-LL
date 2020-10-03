@@ -120,4 +120,3 @@ module.exports = function(app) {
   });
 };
 
-// '/linkup/:id/edit'

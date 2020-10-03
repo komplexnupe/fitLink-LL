@@ -1,4 +1,4 @@
--- Drops the blogger if it exists currently --
+-- Drops the fitLink if it exists currently --
 DROP DATABASE IF EXISTS fitLink;
--- Creates the "blogger" database --
+-- Creates the "fitLink" database --
 CREATE DATABASE fitLink;
