@@ -1,4 +1,8 @@
+// const axios = require('axios');
+
+
 $(document).ready(() => {
+  // const { JSON } = require("sequelize/types");
   $(document).on("click", ".interest", handleInterestBtn);
 
   const activityCategory = $(".activity");
@@ -57,7 +61,35 @@ $(document).ready(() => {
   function handleInterestBtn() {
     const currentLinkUp = $(this).data("id");
     console.log("Interested ===>", currentLinkUp);
-  }
+    $.get("/api/user_data").then(response => {
+      const userEmail = response.email;
+      console.log(userEmail)
+    
+    var data = JSON.stringify({
+      "recipient": `${userEmail}`,
+      "sender": "love.leonard23@gmail.com",
+      "subject": "Test",
+      "message": "Testing..."
+    });
+    
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === this.DONE) {
+        console.log(this.responseText);
+      }
+    });
+    
+    xhr.open("POST", "https://fapimail.p.rapidapi.com/email/send");
+    xhr.setRequestHeader("origin", "https://fitlink22.herokuapp.com/");
+    xhr.setRequestHeader("x-rapidapi-host", "fapimail.p.rapidapi.com");
+    xhr.setRequestHeader("x-rapidapi-key", "32bc71d435msh3a249b992552bcap1422bdjsn9c52caac8954");
+    xhr.setRequestHeader("content-type", "application/json");
+    xhr.setRequestHeader("accept", "application/json");
+    
+    xhr.send(data);
+  })};
 });
 
 // const apiKey = "4A2mW06Ar1B7uDV8EwuxOgrQXGpBmAER";
