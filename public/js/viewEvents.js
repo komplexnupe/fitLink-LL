@@ -65,30 +65,45 @@ $(document).ready(() => {
       const userEmail = response.email;
       console.log(userEmail)
     
-    var data = JSON.stringify({
-      "recipient": `${userEmail}`,
-      "sender": "love.leonard23@gmail.com",
-      "subject": "Test",
-      "message": "Testing..."
-    });
+    // var message = JSON.stringify({
+    //   "recipient": `"${userEmail}"`,
+    //   "sender": "love.leonard23@gmail.com",
+    //   "subject": "Test",
+    //   "message": "Testing..."
+    // });
+    async function postData(url = '', data = {}) {
+      // Default options are marked with *
+      const response = await fetch(url, {
+        method: 'POST', 
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          "x-rapidapi-key": "32bc71d435msh3a249b992552bcap1422bdjsn9c52caac8954",
+          "x-rapidapi-host": "fapimail.p.rapidapi.com",
+          "origin": "https://fitlink22.herokuapp.com/",
+          'Content-Type': 'application/json',
+          "accept": "application/json"
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', 
+        referrerPolicy: 'no-referrer', 
+        body: JSON.stringify(data) 
+      });
+      return response.json(); 
+    }
     
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+    postData('https://fapimail.p.rapidapi.com/email/send', {
+      "recipient": `"${userEmail}"`,
+      "sender": `love.leonard23@gmail.com`,
+      "subject": "FitLink LinkUp Details",
+      "message": "This is a test..."
     
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === this.DONE) {
-        console.log(this.responseText);
-      }
-    });
-    
-    xhr.open("POST", "https://fapimail.p.rapidapi.com/email/send");
-    xhr.setRequestHeader("origin", "https://fitlink22.herokuapp.com/");
-    xhr.setRequestHeader("x-rapidapi-host", "fapimail.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "32bc71d435msh3a249b992552bcap1422bdjsn9c52caac8954");
-    xhr.setRequestHeader("content-type", "application/json");
-    xhr.setRequestHeader("accept", "application/json");
-    
-    xhr.send(data);
+  })
+      .then(data => {
+        console.log(data); // JSON data parsed by `data.json()` call
+      });
+   
   })};
 });
 

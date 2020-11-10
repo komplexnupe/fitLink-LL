@@ -6,9 +6,11 @@
   text-decoration: none;
   font-family: 'Josefin Sans', sans-serif;
 }
-/* body{
-  height: 100%;
-} */
+
+bcg {
+  background-color: rgba(5, 81, 116, 0.1);
+}
+
 form.signup
 form.login {
   margin-top:50px;
@@ -74,6 +76,7 @@ form.login {
  }
 body {
   font-family: 'Raleway', sans-serif;
+  background-color: rgba(5, 81, 116, 0.1);
 }
 
  .wrapper{
