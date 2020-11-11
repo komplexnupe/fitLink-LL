@@ -17,7 +17,8 @@ $(document).ready(() => {
   });
   function displayLinkUp(data) {
     for (let i = 0; i < data.length; i++) {
-      // console.log(convertTime(data[i].startTime));
+      const eventDate = new Date(data[i].linkUpDate).toLocaleDateString();
+      // console.log(eventDate);
       const eventTime = convertTime(data[i].startTime);
       const displayEach = `
       <p id="evite" class="card-title" style="font-size: 20px">
@@ -26,7 +27,7 @@ $(document).ready(() => {
                         Interested
                       </button></p>
                     <p><b>Where: </b>${data[i].street} ${data[i].city}, ${data[i].state} ${data[i].zipCode}
-                    <p><b>When: </b>${data[i].linkUpDate} at ${eventTime}</p>
+                    <p><b>When: </b>${eventDate} at ${eventTime}</p>
                     <p class="card-text"><b>What: </b>${data[i].linkUpDesc}.
                     </p>
                     <hr>
