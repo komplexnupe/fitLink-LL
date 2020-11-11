@@ -29,12 +29,13 @@ $(document).ready(() => {
 
   function displayUserLinkUp(data) {
     for (let i = 0; i < data.length; i++) {
+      const eventDate = new Date(data[i].linkUpDate).toLocaleDateString();
       const eventTime = convertTime(data[i].startTime);
       const displayEach = `
       <div id="${data[i].id}" class="card-title" style="font-size: 20px">
         <b>${data[i].name}</b></p>
                     <p><b>Where: </b>${data[i].street} ${data[i].city}, ${data[i].state} ${data[i].zipCode}</p>
-                    <p><b>When: </b>${data[i].linkUpDate} at ${eventTime}</p>
+                    <p><b>When: </b>${eventDate} at ${eventTime}</p>
                     <p class="card-text"><b>What: </b>${data[i].linkUpDesc}.
                     </p>
                     <button type="button" data-id=${data[i].id} class="btn btn-primary btn-xsm edit">Edit</button>
